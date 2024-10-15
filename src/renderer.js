@@ -21,6 +21,10 @@ webview.src= "https://www.google.com";
 let currentUrl = "";
 
 
+alwaysOnDisplayButton.addEventListener('click', (event) => {
+  window.api.switchDisplayMode();
+});
+
 newWindwButton.addEventListener('click', (event) => {
   window.api.newWindow();
 });

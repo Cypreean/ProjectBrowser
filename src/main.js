@@ -6,11 +6,12 @@ import started from 'electron-squirrel-startup';
 if (started) {
   app.quit();
 }
+console.log('started')
 
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 801,
+    width: 800,
     height: 600,
     autoHideMenuBar: true,
     webPreferences: {
@@ -62,3 +63,19 @@ app.on('window-all-closed', () => {
 ipcMain.on('new-window', (event) => {
   createWindow();
 } );
+
+ipcMain.on('switch-display-mode', (event) => {
+  const mainWindow = BrowserWindow.getFocusedWindow();
+  console.log('Switching display mode...');
+  try {
+    if (mainWindow.isAlwaysOnTop()) {
+      console.log('Current state: Always on top. Turning it off.');
+      mainWindow.setAlwaysOnTop(false, 'screen');
+    } else {
+      console.log('Current state: Not always on top. Turning it on.');
+      mainWindow.setAlwaysOnTop(true, 'screen');
+    }
+  } catch (error) {
+    console.error('Error switching display mode:', error);
+  }
+});
