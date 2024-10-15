@@ -15,11 +15,23 @@ const urlField = document.getElementById('search-input');
 
 //webview
 
+
 const webview = document.getElementById('webview');
 webview.src= "https://www.google.com";
 let currentUrl = "";
 
 
+newWindwButton.addEventListener('click', (event) => {
+  window.api.newWindow();
+});
+
+backButton.addEventListener('click', (event) => {
+  webview.goBack();
+});
+
+forwardButton.addEventListener('click', (event) => {
+  webview.goForward();
+});
 
 reloadButton.addEventListener('click', (event) => {
   webview.reload();
