@@ -1,0 +1,23 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: rgb(47, 43, 43);
+}
+#search-input{
+  width: 60vw;
+  flex: 1;
+  padding-bottom: 5px;
+  background-color: rgb(47, 43, 43);
+  color: white;
+  border: 2px solid white;
+  
+
+}
+#button-container{
+  display: contents;
+  
+}
+#webview{
+  height: 100vh;
+}
+
